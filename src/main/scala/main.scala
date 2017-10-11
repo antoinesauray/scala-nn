@@ -1,5 +1,6 @@
 import activation.sigmoid
 import ml.nn.{Layer, NeuralNet}
+import error.mse
 
 /**
   * Created by antoinesauray on 11/10/2017.
@@ -17,6 +18,11 @@ object Main {
       f1, f2
     )
 
+    val y = List(
+      List(1.0),
+      List(0.0)
+    )
+
     val l2 = new Layer(List(
       List(0.5, 0.1, 0.2)
     ), sigmoid, null)
@@ -28,8 +34,8 @@ object Main {
     ), sigmoid, l2)
 
     val layers = List(l1,l2)
-    val nn = new NeuralNet(layers)
-    val result = nn.forwardProp(X, layers.head)
+    val nn = new NeuralNet(layers, mse)
+    nn.train(X, y)
   }
 }
 

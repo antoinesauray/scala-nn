@@ -11,9 +11,8 @@ package object activation {
   type Activation = (DoubleMatrix) => DoubleMatrix
 
   def sigmoid(Z: DoubleMatrix) = {
-    println("Activation")
-    println(Z)
     Z.map(c => c.map(r => 1.0f / 1.0f + exp(-r)))
   }
+
 }
 

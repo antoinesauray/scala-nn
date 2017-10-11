@@ -16,16 +16,8 @@ package object math {
     a.zip(b).map { t: (Double, Double) => t._1 * t._2 }
   }
 
-  def dotProd(v1:DoubleVector,v2:DoubleVector) = {
-    print(v1)
-    print("   ")
-    println(v2)
-    v1.zip(v2).
-      map { t: (Double, Double) => t._1 * t._2 }.sum
-  }
-
-
-
+  def dotProd(v1:DoubleVector,v2:DoubleVector) =
+    v1.zip(v2).map { t: (Double, Double) => t._1 * t._2 }.sum
 
   def transpose(m: DoubleMatrix): DoubleMatrix =
     if (m.head.isEmpty) Nil
